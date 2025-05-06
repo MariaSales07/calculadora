@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Roxa</title>
+    <link rel="stylesheet" href="art.css">
+</head>
+
+<body>
+    <div class="calculadora">
+        <input type="text" id="display" class="display" value="0" readonly>
+        <div class="botoes">
+            <button class="limpar" onclick="clearDisplay()">C</button>
+           <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button class="operador" onclick="appendToDisplay('*')">*</button>
+             <button onclick="appendToDisplay('3')">3</button>
+             <button onclick="appendToDisplay('4')">4</button>
+             <button onclick="appendToDisplay('5')">5</button>
+            <button class="operador" onclick="appendToDisplay('/')">/</button>
+            <button onclick="appendToDisplay('6')">6</button>
+              <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button class="operador" onclick="appendToDisplay('-')">-</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('0')">0</button>
+          <button onclick="appendToDisplay('.')">.</button>
+            <button class="operador" onclick="appendToDisplay('+')">+</button>
+            <button class="igual" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+
+        function appendToDisplay(valor) {
+            if (display.value === '0') {
+                display.value = valor;
+            } else {
+                display.value += valor;
+            }
+        }
+
+        function clearDisplay() {
+            display.value = '0';
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch (erro) {
+                display.value = 'Erro';
+            }
+        }
+    </script>
+</body>
+</html>
